@@ -34,7 +34,7 @@ const vcard = 'BEGIN:VCARD\n'
             + 'VERSION:3.0\n' 
             + 'FN:Affis Admin\n' 
             + 'ORG: Pengembang XBot;\n' 
-            + 'TEL;type=CELL;type=VOICE;waid=5511973027044:+55 11 97302-7044\n' 
+            + 'TEL;type=CELL;type=VOICE;waid=5571996834782:+55 71 9683-4782\n' 
             + 'END:VCARD' 
 prefix = '!'
 blocked = []          
@@ -47,7 +47,7 @@ const time = moment().tz('Asia/Jakarta').format("HH:mm:ss")
 const arrayBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
 const bulan = arrayBulan[moment().format('MM') - 1]
 const config = {
-    XBOT: 'ᏴϴͲ ᎠႮ ᏦᎬᏦᎬ', 
+    XBOT: 'Bot do Roh', 
     instagram: 'https://www.instagram.com/kaic_de_paula?r=nametag', 
     nomer: 'wa.me/557196834782',
     youtube: 'https://youtube.com/channel/UC2a7N-vZ5xrDF-0nfcaUspw', 
