@@ -2,7 +2,7 @@
 const help = (prefix) => { 
 	return `                 
 Criador do Bot:Ronaldo Silva
-Tel:wa.me/+5596834782
+Tel:wa.me/+557196834782
 
 Menu de comando↓
 ╔═════════════════
@@ -114,7 +114,7 @@ Menu de comando↓
 ║├──> Logo com seu texto
 ║├────────────────
 ║├> ${prefix}logoph seu|txt
-║├──> Logo cm seu texto
+║├──> Logo com seu texto
 ║├────────────────
 ║├> ${prefix}info
 ║├──> Informações do bot
@@ -152,7 +152,7 @@ Menu de comando↓
 ║├────────────────
 ║├> ${prefix}clonar
 ║├> ${prefix}clone
-║├──> Clonar tag
+║├──> Clonar foto
 ║├────────────────
 ║├>  Suporte
 ║├────────────────
