@@ -489,7 +489,7 @@ case 'lofi':
 					break
 				case 'clearall':
 				case 'limpar':
-					if (!isOwner) return reply(' quem e tu?')
+					if (!isOwner) return reply(' Quem é você?')
 					anu = await client.chats.all()
 					client.setMaxListeners(25)
 					for (let _ of anu) {
@@ -501,13 +501,13 @@ case 'lofi':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isOwner) return reply(mess.only.ownerB)
 					client.blockUser (`${body.slice(7)}@c.us`, "add")
-					client.sendMessage(from, `membro bloqueado ${body.slice(7)}@c.us`, text)
+					client.sendMessage(from, `Membro bloqueado✅ ${body.slice(7)}@c.us`, text)
 					break
                     case 'desbloquear':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isOwner) return reply(mess.only.ownerB)
 				    client.blockUser (`${body.slice(9)}@c.us`, "remove")
-					client.sendMessage(from, `membro desbloqueado ${body.slice(9)}@c.us`, text)
+					client.sendMessage(from, `Membro desbloqueado✅ ${body.slice(9)}@c.us`, text)
 				break
 				case 'kitar': 
 				if (!isGroup) return reply(mess.only.group)
@@ -515,16 +515,16 @@ case 'lofi':
 				await client.client.leaveGroup(from, 'adeus...', groupId)
                     break
 				case 'bc': 
-					if (!isOwner) return reply(' so meu criador') 
+					if (!isOwner) return reply(' Quem é você?') 
 					if (args.length < 1) return reply('.......')
 					anu = await client.chats.all()
 					if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						buff = await client.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							client.sendMessage(_.jid, buff, image, {caption: `❮  mensagem de transmissão❯\n\n${body.slice(4)}`})
+							client.sendMessage(_.jid, buff, image, {caption: `❮  Mensagem de transmissão❯\n\n${body.slice(4)}`})
 						}
-						reply('transmissao feita')
+						reply('Transmissao feita✅')
 					} else {
 						for (let _ of anu) {
 							sendMess(_.jid, `❮ msg de transmissao❯\n\n${body.slice(4)}`)
@@ -538,21 +538,21 @@ case 'lofi':
                         if (!isBotGroupAdmins) return reply(mess.only.Badmin)
                        media = await client.downloadAndSaveMediaMessage(mek)
                          await client.updateProfilePicture (from, media)
-                        reply('pronto')
+                        reply('Pronto!')
                 break						
 				case 'add':
 				case 'adicionar':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-					if (args.length < 1) return reply('nao tenho bola de cristal pra adivinhar quem vc quer add Aki')
-					if (args[0].startsWith('08')) return reply('qual cod do pais?? ')
+					if (args.length < 1) return reply('Qual o número da pessoa que deseja que eu adicione?')
+					if (args[0].startsWith('08')) return reply('Qual o código do país? ')
 					try {
 						num = `${args[0].replace(/ /g, '')}@s.whatsapp.net`
 						client.groupAdd(from, [num])
 					} catch (e) {
 						console.log('Error :', e)
-						reply('Falha ao adicionar, talvez porque seja privado')
+						reply('Falha ao adicionar, talvez o número esteja privado')
 					}
 					break
 					case 'grup':
@@ -562,10 +562,10 @@ case 'lofi':
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					if (args[0] === 'abrir') {
-					    reply(`grupo aberto para membros`)
+					    reply(`Grupo aberto, agora todos os membros podem conversar`)
 						client.groupSettingChange(from, GroupSettingChange.messageSend, false)
 					} else if (args[0] === 'fechar') {
-						reply(`grupo fechado SOMENTE ADM'S MANDA MSGS`)
+						reply(`Grupo fechado, somente Admins podem mandar mensagem`)
 						client.groupSettingChange(from, GroupSettingChange.messageSend, true)
 					}
 					break
@@ -575,8 +575,8 @@ case 'lofi':
             case 'creator':
             case 'criador':
             case 'keke':
-                  client.sendMessage(from, {displayname: "keke adm", vcard: vcard}, MessageType.contact, { quoted: mek})
-       client.sendMessage(from, 'Este é o número do meu criador ^-^ ',MessageType.text, { quoted: mek} )
+                  client.sendMessage(from, {displayname: "Roh adm", vcard: vcard}, MessageType.contact, { quoted: mek})
+       client.sendMessage(from, 'Este é o número do meu criador^^ ',MessageType.text, { quoted: mek} )
            break    
            case 'setname':
            case 'mudarnome':
@@ -584,7 +584,7 @@ case 'lofi':
 			    if (!isGroupAdmins) return reply(mess.only.admin)
 				if (!isBotGroupAdmins) return reply(mess.only.Badmin)
                 client.groupUpdateSubject(from, `${body.slice(9)}`)
-                client.sendMessage(from, 'nome do grupo alterado cm sucesso', text, {quoted: mek})
+                client.sendMessage(from, 'Nome do grupo alterado com sucesso✅', text, {quoted: mek})
                 break
                 case 'setdesc':
                 case 'mudardesc':
@@ -592,25 +592,25 @@ case 'lofi':
 			    if (!isGroupAdmins) return reply(mess.only.admin)
 				if (!isBotGroupAdmins) return reply(mess.only.Badmin)
                 client.groupUpdateDescription(from, `${body.slice(9)}`)
-                client.sendMessage(from, 'descricao trocada cm sucesso', text, {quoted: mek})
+                client.sendMessage(from, 'Descrição alterada com sucesso✅', text, {quoted: mek})
                 break
            case 'demote':
            case 'rebaixar':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('marca a pessoa pra tirar o ADM')
+					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Marca a pessoa que deseja tirar o ADM')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
 						teks = ''
 						for (let _ of mentioned) {
-							teks += `nao mamou  o bonde direitinho perde ADM seu gay :\n`
+							teks += `Você não é mais um administrador :\n`
 							teks += `@_.split('@')[0]`
 						}
 						mentions(teks, mentioned, true)
 						client.groupDemoteAdmin(from, mentioned)
 					} else {
-						mentions(`nao mamou o bonde direitinho perde adm @${mentioned[0].split('@')[0]} seu gay`, mentioned, true)
+						mentions(`Você não é mais um administrador  @${mentioned[0].split('@')[0]} sinto muito`, mentioned, true)
 						client.groupDemoteAdmin(from, mentioned)
 					}
 					break
@@ -640,18 +640,18 @@ case 'lofi':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('marque a pessoa q deseja remover')
+					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Marque a pessoa que deseja remover')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
 						teks = ''
 						for (let _ of mentioned) {
-							teks += `removi mermo fodassi 🏃 :\n`
+							teks += `Removido com sucesso✅ :\n`
 							teks += `@_.split('@')[0]`
 						}
 						mentions(teks, mentioned, true)
 						client.groupRemove(from, mentioned)
 					} else {
-						mentions(`removi mermo @${mentioned[0].split('@')[0]} fodassi🏃`, mentioned, true)
+						mentions(`Removido com sucesso✅ @${mentioned[0].split('@')[0]} `, mentioned, true)
 						client.groupRemove(from, mentioned)
 					}
 					break
@@ -659,7 +659,7 @@ case 'lofi':
 				case 'listaadms':
 				case 'adms':
 					if (!isGroup) return reply(mess.only.group)
-					teks = `adms do grupo *${groupMetadata.subject}*\nadms : ${groupAdmins.length}\n\n`
+					teks = `Admins do grupo *${groupMetadata.subject}*\nQuantidade : ${groupAdmins.length}\n\n`
 					no = 0
 					for (let admon of groupAdmins) {
 						no += 1
@@ -694,7 +694,7 @@ case 'lofi':
 					} else if (Number(args[0]) === 0) {
 						nsfw.splice(from, 1)
 						fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw))
-						reply('❬ sucesso❭')
+						reply('❬ Feito✅❭')
 					} else {
 						reply(' *Use o 0 para desativar e o 1 para ativar* \nexemplo: nsfw 1')
 					}
@@ -707,14 +707,14 @@ case 'lofi':
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (args.length < 1) return reply('1 ou 0')
 					if (Number(args[0]) === 1) {
-						if (isWelkom) return reply('ativado !!!')
+						if (isWelkom) return reply('Ativado com sucesso✅!')
 						welkom.push(from)
 						fs.writeFileSync('./src/welkom.json', JSON.stringify(welkom))
 						reply('❬ pronto ❭')
 					} else if (Number(args[0]) === 0) {
 						welkom.splice(from, 1)
 						fs.writeFileSync('./src/welkom.json', JSON.stringify(welkom))
-						reply('❬ pronto ❭ ')
+						reply('❬ Pronto ❭ ')
 					} else {
 						reply(' *Use 1 para ativar ou 0 para desativar* \n *exemplo: ${prefix}welcome 1*')
 					}
@@ -730,9 +730,9 @@ case 'lofi':
 						pp = await client.getProfilePicture(id)
 						buffer = await getBuffer(pp)
 						client.updateProfilePicture(botNumber, buffer)
-						mentions(`Foto profile Berhasil di perbarui menggunakan foto profile @${id.split('@')[0]}`, [jid], true)
+						mentions(`Foto de perfil de @${id.split('@')[0]} foi clonada`, [jid], true)
 					} catch (e) {
-						reply(' *falhei ;(, tente mais tarde ^_^* ')
+						reply(' *Algo deu errado* ')
 					}
 					break
 				case 'wait':
