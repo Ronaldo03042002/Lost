@@ -329,7 +329,7 @@ case 'lofi':
 				case 'ytvideo':
 				case 'ytbuscar':
 				case 'ytbaixa':
-					if (args.length < 1) return reply('qual link fof??')
+					if (args.length < 1) return reply('Poderia enviar o link??')
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
 					anu = await fetchJson(`https://st4rz.herokuapp.com/api/ytv2?url=${args[0]}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
@@ -340,7 +340,7 @@ case 'lofi':
 					client.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.title}.mp4`, quoted: mek})
 					break
                 case 'logo3d':
-              	    if (args.length < 1) return reply('qual txt lindx??')
+              	    if (args.length < 1) return reply('Cadê o texto?')
                     teks = `${body.slice(8)}`
                     if (teks.length > 10) return client.sendMessage(from, 'limite de 10 letras', text, {quoted: mek})
                     buff = await getBuffer(`https://docs-jojo.herokuapp.com/api/text3d?text=${teks}`, {method: 'get'})
