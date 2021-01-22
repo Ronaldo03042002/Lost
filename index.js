@@ -107,7 +107,7 @@ client.on('group-participants-update', async (anu) => {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `oiee @${num.split('@')[0]}\ seja bem vindo/a ao grupo *${mdata.subject}* comportasse para nao ganha ban`
+				teks = `oiee @${num.split('@')[0]}\ seja bem vindo/a ao grupo *${mdata.subject}* siga as regras e evite ser banido`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			} else if (anu.action == 'remove') {
@@ -443,9 +443,9 @@ case 'lofi':
 				case 'gtts':	
 				case 'tts':
 				case 'audio':
-					if (args.length < 1) return client.sendMessage(from, 'idioma e nescessario!!', text, {quoted: mek})
+					if (args.length < 1) return client.sendMessage(from, 'Idioma é necessário!', text, {quoted: mek})
 					const gtts = require('./lib/gtts')(args[0])
-					if (args.length < 2) return client.sendMessage(from, 'qual txt vc quer q eu fale lindu?', text, {quoted: mek})
+					if (args.length < 2) return client.sendMessage(from, 'Qual texto você quer que eu reproduza?', text, {quoted: mek})
 					dtt = body.slice(9)
 					ranm = getRandom('.mp3')
 					rano = getRandom('.ogg')
@@ -669,14 +669,14 @@ case 'lofi':
 					break
 				case 'toimg':
 				case 'converter':
-					if (!isQuotedSticker) return reply('marca a fig inteligente')
+					if (!isQuotedSticker) return reply('Marque a figurinha!')
 					reply(mess.wait)
 					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await client.downloadAndSaveMediaMessage(encmedia)
 					ran = getRandom('.png')
 					exec(`ffmpeg -i ${media} ${ran}`, (err) => {
 						fs.unlinkSync(media)
-						if (err) return reply('algo de erro ;(, tente dnovo dps ^_^')
+						if (err) return reply('Algo deu errado')
 						buffer = fs.readFileSync(ran)
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tchau entt '})
 						fs.unlinkSync(ran)
@@ -687,7 +687,7 @@ case 'lofi':
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (args.length < 1) return reply('0 ou 1?')
 					if (Number(args[0]) === 1) {
-						if (isNsfw) return reply('ativado !!')
+						if (isNsfw) return reply('Ativado!')
 						nsfw.push(from)
 						fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw))
 						reply('❬ sucesso ❭')
@@ -696,7 +696,7 @@ case 'lofi':
 						fs.writeFileSync('./src/nsfw.json', JSON.stringify(nsfw))
 						reply('❬ sucesso❭')
 					} else {
-						reply(' *use o 0 para desativar e o 1 para ativar* \nexemplo: nsfw 1')
+						reply(' *Use o 0 para desativar e o 1 para ativar* \nexemplo: nsfw 1')
 					}
 					break
 				case 'welcome':
@@ -716,7 +716,7 @@ case 'lofi':
 						fs.writeFileSync('./src/welkom.json', JSON.stringify(welkom))
 						reply('❬ pronto ❭ ')
 					} else {
-						reply(' *use 1 para ativar ou 0 para desativar* \n *exemplo: ${prefix}welcome 1*')
+						reply(' *Use 1 para ativar ou 0 para desativar* \n *exemplo: ${prefix}welcome 1*')
 					}
 				case 'clone':
 				case 'clonar':
