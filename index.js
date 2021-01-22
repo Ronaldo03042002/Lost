@@ -32,7 +32,7 @@ const nsfw = JSON.parse(fs.readFileSync('./src/nsfw.json'))
 const samih = JSON.parse(fs.readFileSync('./src/simi.json'))
 const vcard = 'BEGIN:VCARD\n' 
             + 'VERSION:3.0\n' 
-            + 'FN:Affis Admin\n' 
+            + 'FN:Ronaldo \n' 
             + 'ORG: Pengembang XBot;\n' 
             + 'TEL;type=CELL;type=VOICE;waid=557196834782:+55 71 9683-4782\n' 
             + 'END:VCARD' 
@@ -107,7 +107,7 @@ client.on('group-participants-update', async (anu) => {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `oiee @${num.split('@')[0]}\ seja bem vindo/a ao grupo *${mdata.subject}* siga as regras e evite ser banido`
+				teks = `Oiie @${num.split('@')[0]}\ seja bem vindo(a) ao grupo *${mdata.subject}* siga as regras e evite ser banido`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			} else if (anu.action == 'remove') {
@@ -117,7 +117,7 @@ client.on('group-participants-update', async (anu) => {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `sayonara pessoa @${num.split('@')[0]} quem sabe possa voltar`
+				teks = `Sayonara @${num.split('@')[0]} Espero que possa voltar em breve`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			}
@@ -155,7 +155,7 @@ client.on('group-participants-update', async (anu) => {
 				wait: '❬❗❭AGUARDE  ENQUANTO ESTOU PROCESSANDO❬❗❭',
 				success: '️❬ ✔ ❭ PRONTINHO 🖤',
 				error: {
-					stick: 'Eu falhei :( desculpa',
+					stick: 'Eu falhei, desculpa',
 					Iv: 'Desculpe, o link está inválido☹️'
 				},
 				only: {
@@ -249,7 +249,7 @@ client.on('group-participants-update', async (anu) => {
 case 'lofi':
 					memein = await kagApi.memeindo()
 					buffer = await getBuffer(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL9hZBPRo16fIhsIus3t1je2oAU23pQqBpfw&usqp=CAU`)
-					client.sendMessage(from, buffer, image, {quoted: mek, caption: '️amoo lofi'})
+					client.sendMessage(from, buffer, image, {quoted: mek, caption: '️Amo lofi'})
 					break
                  case 'logoph':
 					var gh = body.slice(9)
@@ -379,7 +379,7 @@ case 'lofi':
 								fs.unlinkSync(media)
 							})
 					} else {
-						reply('Escolha a foto para pegar os txt dela ${prefix} >-<')
+						reply('Escolha a foto para pegar o texto dela')
 					}
 					break
 				case 'stiker': 
@@ -424,7 +424,7 @@ case 'lofi':
 								console.log(`Error : ${err}`)
 								fs.unlinkSync(media)
 								tipe = media.endsWith('.mp4') ? 'video' : 'gif'
-								reply(`Yah gagal ;(, tente dnovo ^_^`)
+								reply(`Algo deu errado ;(,tente novamente`)
 							})
 							.on('end', function () {
 								console.log('Finish')
@@ -437,7 +437,7 @@ case 'lofi':
 							.toFormat('webp')
 							.save(ran)
 					} else {
-						reply(`sapoha ${prefix}sticker e pra fazer fig cm foto/gif burro`)
+						reply(`Esse comando ${prefix}é para figurinhas`)
 					}
 					break
 				case 'gtts':	
@@ -455,7 +455,7 @@ case 'lofi':
 						exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
 							fs.unlinkSync(ranm)
 							buff = fs.readFileSync(rano)
-							if (err) return reply('falhei desculpe-me tente novamente dps^_^')
+							if (err) return reply('Falhei, desculpe-me.')
 							client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})
 							fs.unlinkSync(rano)
 						})
@@ -469,7 +469,7 @@ case 'lofi':
 					reply(`Sigla de comandos alterada para : ${prefix}`)
 					break 	
 				case 'hilih': 
-					if (args.length < 1) return reply('qual txt deseja lindx?')
+					if (args.length < 1) return reply('Qual texto deseja?')
 					anu = await fetchJson(`https://mhankbarbars.herokuapp.com/api/hilih?teks=${body.slice(7)}`, {method: 'get'})
 					reply(anu.result)
 					break
@@ -484,7 +484,7 @@ case 'lofi':
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: teks})
 					} catch (e) {
 						console.log(`Error :`, color(e,'red'))
-						reply('nada encontrado')
+						reply('Nada encontrado')
 					}
 					break
 				case 'clearall':
@@ -495,7 +495,7 @@ case 'lofi':
 					for (let _ of anu) {
 						client.deleteChat(_.jid)
 					}
-					reply('esta limpo mestre  :)')
+					reply('Está limpo meu senhor🙏')
 					break
 			       case 'bloquear':
 					if (!isGroup) return reply(mess.only.group)
@@ -524,12 +524,12 @@ case 'lofi':
 						for (let _ of anu) {
 							client.sendMessage(_.jid, buff, image, {caption: `❮  Mensagem de transmissão❯\n\n${body.slice(4)}`})
 						}
-						reply('Transmissao feita✅')
+						reply('Transmissão feita✅')
 					} else {
 						for (let _ of anu) {
 							sendMess(_.jid, `❮ msg de transmissao❯\n\n${body.slice(4)}`)
 						}
-						reply('tm feita')
+						reply('Feita✅')
 					}
 					break
 			   	case 'mudarfoto': 
@@ -619,18 +619,18 @@ case 'lofi':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('marca a pessoa pra ter ADM')
+					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Marque a pessoa que deseja tornar Admin')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
 						teks = ''
 						for (let _ of mentioned) {
-							teks += `novo adm fml esse mamou o bonde pra ser ADM :\n`
+							teks += `Novo Hokage do grupo :\n`
 							teks += `@_.split('@')[0]`
 						}
 						mentions(teks, mentioned, true)
 						client.groupMakeAdmin(from, mentioned)
 					} else {
-						mentions(`novo adm fml sem escandalo @${mentioned[0].split('@')[0]} esse mamou o bonde pra ser ADM`, mentioned, true)
+						mentions(`Parabéns💜😊 você agora é o mais novo Hokage do grupo @${mentioned[0].split('@')[0]} Cuide do grupo como um verdadeiro Hokage cuida da sua vila`, mentioned, true)
 						client.groupMakeAdmin(from, mentioned)
 					}
 					break	
@@ -678,7 +678,7 @@ case 'lofi':
 						fs.unlinkSync(media)
 						if (err) return reply('Algo deu errado')
 						buffer = fs.readFileSync(ran)
-						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'tchau entt '})
+						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'convertido com sucesso✅'})
 						fs.unlinkSync(ran)
 					})
 					break
@@ -747,7 +747,7 @@ case 'lofi':
 							reply(err)
 						})
 					} else {
-						reply(' *encontrei isso* ')
+						reply(' *Encontrei isso* ')
 					}
 					break
 				default:
