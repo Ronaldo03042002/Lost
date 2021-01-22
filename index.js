@@ -162,8 +162,8 @@ client.on('group-participants-update', async (anu) => {
 					group: '❬❗❭ COMANDO SÓ PODE SER EXECUTADO EM GRUPOS❬❗❭ ',
 					ownerG: '❬❗❭ COMANDO EXCLUSIVO PARA O PROPRIETÁRIO DO BOT.❬❗❭ ',
 					ownerB: '❬❗❭  COMANDO EXCLUSIVO PARA O PROPRIETÁRIO DO BOT.❬❗❭  ',
-					admin: ' ❬ ⚠️ ❭ COMANDO PERMITIDO SOMENTE PARA ADMS ❬ ⚠️ ❭ ',
-					Badmin: '❬❗❭O BOT PRECISA SER ADEMAR ;3 '
+					admin: ' ❬ ⚠️ ❭ COMANDO PERMITIDO SOMENTE PARA ADMIN ❬ ⚠️ ❭ ',
+					Badmin: '❬❗❭O BOT PRECISA SER ADMIN '
 				}
 			}
 
@@ -217,12 +217,12 @@ client.on('group-participants-update', async (anu) => {
 				case 'info':
 					me = client.user
 					uptime = process.uptime()
-					teks = `nome do bot : ${me.name}\n*numero do bot* : @${me.jid.split('@')[0]}\n*sigla dos comandos* : ${prefix}\nnumeros bloqueados : ${blocked.length}\no bot esta ativo desde : ${kyun(uptime)}\n`
+					teks = `Nome do bot : ${me.name}\n*Número do bot* : @${me.jid.split('@')[0]}\n*Sigla dos comandos* : ${prefix}\nNúmeros bloqueados : ${blocked.length}\no Bot esta ativo desde : ${kyun(uptime)}\n`
 					buffer = await getBuffer(me.imgUrl)
 					client.sendMessage(from, buffer, image, {caption: teks, contextInfo:{mentionedJid: [me.jid]}})
 					break
 				case 'listabloq': 
-					teks = 'vezes q fui da KMKZ/dei bloq :\n'
+					teks = 'Pessoas bloqueadas :\n'
 					for (let block of blocked) {
 						teks += `➢ @${block.split('@')[0]}\n`
 					}
