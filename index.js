@@ -34,7 +34,7 @@ const vcard = 'BEGIN:VCARD\n'
             + 'VERSION:3.0\n' 
             + 'FN:Affis Admin\n' 
             + 'ORG: Pengembang XBot;\n' 
-            + 'TEL;type=CELL;type=VOICE;waid=5571996834782:+55 71 9683-4782\n' 
+            + 'TEL;type=CELL;type=VOICE;waid=557196834782:+55 71 9683-4782\n' 
             + 'END:VCARD' 
 prefix = '!'
 blocked = []          
@@ -272,8 +272,8 @@ case 'lofi':
                          text: teks1,
                          contextInfo: {mentionedJid: [nomor]},
                      }
-                    client.sendMessage('5511973027044@s.whatsapp.net', options, text, {quoted: mek})
-                    reply('PDP PARSA, BUG FOI REPORTADO, SE FOR MENTIRA VAI SER COBRADO🙄✌🏼')
+                    client.sendMessage('557196834782@s.whatsapp.net', options, text, {quoted: mek})
+                    reply('OBRIGADO COLEGA, BUG FOI REPORTADO COM SUCESSO✅')
                     break
 					case 'marcar':
 					members_id = []
@@ -450,7 +450,7 @@ case 'lofi':
 					ranm = getRandom('.mp3')
 					rano = getRandom('.ogg')
 					dtt.length > 300
-					? reply('txt mto grande😤')
+					? reply('Texto muito grande😤')
 					: gtts.save(ranm, dtt, function() {
 						exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
 							fs.unlinkSync(ranm)
@@ -466,7 +466,7 @@ case 'lofi':
 					if (args.length < 1) return
 					if (!isOwner) return reply(mess.only.ownerB)
 					prefix = args[0]
-					reply(`sigla de comandos alterada para : ${prefix}`)
+					reply(`Sigla de comandos alterada para : ${prefix}`)
 					break 	
 				case 'hilih': 
 					if (args.length < 1) return reply('qual txt deseja lindx?')
