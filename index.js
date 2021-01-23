@@ -721,9 +721,9 @@ case 'lofi':
 				case 'clone':
 				case 'clonar':
 					if (!isGroup) return reply(mess.only.group)
-					if (!isOwner) return reply(' *quem e tu? ?') 
-					if (args.length < 1) return reply(' *TAG do membro clonada!* ')
-					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag cvk')
+					if (!isOwner) return reply(' Perdão, mas quem é você?') 
+					if (args.length < 1) return reply(' *Foto do membro foi clonada!* ')
+					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
 					let { jid, id, notify } = groupMembers.find(x => x.jid === mentioned)
 					try {
